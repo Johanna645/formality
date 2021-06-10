@@ -1,3 +1,5 @@
+Work in progress... test project to create a form and connect it to a database, styling will be done with bootstrap eventually.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

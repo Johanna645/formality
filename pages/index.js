@@ -1,8 +1,28 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { useState } from 'react';
+// import postgres from 'postgres';
 
 export default function Home() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState(0);
+
+  function handleFirstName(event) {
+    setFirstName(event.target.value);
+  }
+
+  function handleLastName(event) {
+    setLastName(event.target.value);
+  }
+
+  function handleAge(event) {
+    setAge(event.target.value);
+  }
+
+  function handleClick() {}
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,24 +37,50 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <button>button</button>
+          <form>
+            <label>
+              First Name
+              <input
+                type="text"
+                name="firstName"
+                value={firstName}
+                onChange={handleFirstName}
+              />
+            </label>
 
-          <button>button</button>
+            <label>
+              Last Name
+              <input
+                type="text"
+                name="lastName"
+                value={lastName}
+                onChange={handleLastName}
+              />
+            </label>
+
+            <label>
+              Age
+              <input
+                type="integer"
+                name="age"
+                value={age}
+                onChange={handleAge}
+              />
+            </label>
+
+            <span>
+              I am a Robot
+              <button type="checkbox" />
+            </span>
+
+            <button type="submit" value="save" onClick={handleClick}>
+              Save
+            </button>
+          </form>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
   );
 }
